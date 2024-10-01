@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+.header {
+  width: 100%;
+  height: 200px;
+  background-image: url("/images/BGimage.jpg");
+  background-size: cover;
+  background-position: center 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+.header h1 {
+  font-size: 2, 5rem;
+  margin-right: 1em;
+}
+
+.header h1,
+.header .watchlist-link {
+  position: relative;
+  z-index: 2;
+}
+
+.watchlist-link {
+  margin-top: 10px;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+main {
+  position: relative;
+}
+
+.search-container {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  z-index: 2;
+  width: 80%;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.search-box-wrapper {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border-radius: 5px 0 0 5px;
+  background-color: white;
+  overflow: hidden;
+  padding: 5px 0;
+}
+
+.search-icon {
+  padding: 10px;
+  color: gray;
+  background-color: white;
+  border: none;
+}
+
+.search-box {
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  font-size: 16px;
+  flex: 1;
+}
+
+.search-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background-color: #dde0e2;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+}
