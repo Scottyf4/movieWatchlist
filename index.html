@@ -18,25 +18,31 @@
       <a href="my-watchlist.html" class="watchlist-link">My Watchlist</a>
     </header>
     <main>
-      <form class="search-container" method="get">
-        <div class="search-box-wrapper">
-          <img
-            src="/images/magIcon.png"
-            alt="magnifying glass icon"
-            class="search-icon"
-          />
-          <input
-            type="text"
-            placeholder="Search for a film..."
-            class="search-box"
-            id="searchInput"
-          />
-        </div>
+      <section class="searchSection">
+        <form class="search-container" method="get">
+          <div class="search-box-wrapper">
+            <img
+              src="/images/magIcon.png"
+              alt="magnifying glass icon"
+              class="search-icon"
+            />
+            <input
+              type="text"
+              placeholder="Search for a film..."
+              class="search-box"
+              id="searchInput"
+            />
+          </div>
 
-        <button type="submit" class="search-button" id="searchBtn">
-          Search
-        </button>
-      </form>
+          <button type="submit" class="search-button" id="searchBtn">
+            Search
+          </button>
+        </form>
+      </section>
+      <div id="displayContainer">
+        <img src="/images/movieIcon.png" alt="film strip icon" />
+        <p>Start Exploring</p>
+      </div>
     </main>
     <script src="index.js"></script>
   </body>
