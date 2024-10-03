@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: "Inter", sans-serif;
 }
-
+/* CSS for heading section */
 .header {
   width: 100%;
   height: 200px;
@@ -48,7 +48,7 @@ body {
   font-size: 0.9rem;
   font-weight: 500;
 }
-
+/* CSS for search bar */
 .searchSection {
   position: relative;
 }
@@ -100,16 +100,105 @@ body {
   cursor: pointer;
   font-size: 16px;
 }
+/* CSS for main / movie display area */
+main {
+  margin-top: 20px;
+}
 
 #displayContainer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #dfdddd;
-  margin: auto auto;
+}
+
+#startup-display {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.errorDisplay {
+  margin-top: 200px;
+  width: 80%;
+  text-align: center;
+}
+
+/* CSS for movie Card */
+
+.movie-card {
+  display: flex;
+  flex-direction: row;
+  margin-left: 1em;
+  margin-top: 1em;
+  margin-right: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #e5e7eb;
+  color: black;
+}
+
+.movie-card p {
+  font-size: 0.8rem;
+  font-weight: 200;
+  margin-top: 0;
+}
+.movie-poster {
+  width: 99px;
+  height: 147px;
+}
+
+.movie-top {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-left: 1em;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.movie-top > h2 {
+  margin-top: 0.2em;
+  margin-right: 1em;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.add-movie-btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-left: 1em;
+}
+
+.circle {
+  width: 15px;
+  height: 15px;
+  background-color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.plus {
+  color: white;
+  font-size: 18px;
+}
+
+.btn-text {
+  font-size: 0.8rem;
+  color: black;
+}
+
+#movie-plot {
+  margin-top: 1.8em;
+  margin-left: 1em;
 }
