@@ -177,6 +177,16 @@ main {
   margin-left: 1em;
 }
 
+.remove-movie-btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-left: 1em;
+}
+
 .circle {
   width: 15px;
   height: 15px;
