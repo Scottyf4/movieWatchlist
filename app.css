@@ -114,6 +114,7 @@ main {
   justify-content: center;
   align-items: center;
   color: #dfdddd;
+  margin-right: 2em;
 }
 
 #startup-display {
@@ -142,7 +143,7 @@ main {
   min-width: 95%;
   margin-left: 1em;
   margin-top: 2em;
-  margin-right: 1em;
+  margin-right: 2em;
   padding-bottom: 1em;
   border-bottom: 1px solid #e5e7eb;
   color: black;
@@ -229,7 +230,7 @@ main {
 }
 
 .watchlistMovies {
-  position: relative;
+  margin-right: 1em;
 }
 
 .emptySection {
@@ -273,7 +274,7 @@ main {
 .movieBoard {
   width: 60px;
 }
-
+/* Media Queries */
 @media (min-width: 768px) {
   .header {
     justify-content: space-evenly;
@@ -334,6 +335,22 @@ main {
     height: 200px;
     margin-bottom: 2em;
   }
+
+  #startup-display {
+    grid-column: span 2;
+  }
+
+  .errorDisplay {
+    margin-top: 200px;
+    margin-left: 60%;
+    width: 80%;
+    text-align: center;
+  }
+
+  #watchlistMovies {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -361,15 +378,6 @@ main {
     font-size: 1.2rem;
   }
 
-  #startup-display {
-    width: 150px;
-    text-align: center;
-  }
-
-  #startup-display p {
-    font-size: 2em;
-  }
-
   .errorDisplay {
     margin-top: 200px;
     margin-left: 60%;
@@ -385,6 +393,15 @@ main {
     margin-right: 2em;
   }
 
+  #startup-display {
+    text-align: center;
+    grid-column: span 2;
+  }
+
+  #startup-display p {
+    font-size: 2em;
+  }
+
   .movie-top {
     margin-left: 0;
   }
@@ -393,6 +410,7 @@ main {
     margin: 0.5em;
     height: 250px;
     margin-bottom: 2em;
+    padding-bottom: 2em;
   }
 
   .movie-card p {
@@ -418,6 +436,7 @@ main {
   #watchlistMovies {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-right: 2em;
   }
 }
 
@@ -427,6 +446,7 @@ main {
   }
   .header {
     justify-content: space-between;
+    height: 250px;
   }
 
   .header h1 {
@@ -473,6 +493,7 @@ main {
 
   .movie-card {
     margin: 0.5em;
+    margin-right: 4em;
     justify-content: space-between;
     height: 350px;
   }
@@ -514,5 +535,6 @@ main {
   #watchlistMovies {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    margin-right: 2em;
   }
 }

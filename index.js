@@ -35,7 +35,7 @@ if (window.location.pathname.endsWith("index.html")) {
 
 function getOmdbData(searchedMovie) {
   try {
-    fetch(`http://www.omdbapi.com/?apikey=5f5d0368&s=${searchedMovie}`)
+    fetch(`https://www.omdbapi.com/?apikey=5f5d0368&s=${searchedMovie}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.Response === "True") {
@@ -56,7 +56,7 @@ function getOmdbData(searchedMovie) {
 // function to take base details from OMDb and get extra details using the Imdb ID
 function getImbdDetails(id) {
   try {
-    fetch(`http://www.omdbapi.com/?apikey=5f5d0368&i=${id}`)
+    fetch(`https://www.omdbapi.com/?apikey=5f5d0368&i=${id}`)
       .then((res) => res.json())
       .then((data) => {
         createMovieCard(data);
@@ -65,6 +65,7 @@ function getImbdDetails(id) {
     console.error(err);
   }
 }
+
 // function to use data from API to create html Card to display
 function createMovieCard(movieData) {
   artwork = "";
@@ -104,7 +105,7 @@ function createMovieCard(movieData) {
 // Function to add movie data to local storage
 
 function addToWatch(movieId) {
-  fetch(`http://www.omdbapi.com/?apikey=5f5d0368&i=${movieId}`)
+  fetch(`https://www.omdbapi.com/?apikey=5f5d0368&i=${movieId}`)
     .then((res) => res.json())
     .then((data) => {
       if (!localStorage.getItem("movies")) {
@@ -120,7 +121,7 @@ function addToWatch(movieId) {
       displayAddedModal(data);
     });
 }
-
+// Function to display modal showing which movie has been added to watchlist
 function displayAddedModal(movie) {
   const message =
     (modalMessage.textContent = `${movie.Title} has been added to your watchlist`);
@@ -135,11 +136,13 @@ function displayAddedModal(movie) {
   }, 100);
 }
 
+// Seperation of concerns for watchlist.html inc functions and event listeners
+
 if (window.location.pathname.endsWith("watchlist.html")) {
   const watchlistMovies = document.getElementById("watchlistMovies");
 
   displayMovies();
-
+  // function to display movies on watchlist page from local storage
   function displayMovies() {
     const storedMovies = localStorage.getItem("movies");
     const moviesStored = JSON.parse(storedMovies);
@@ -181,7 +184,7 @@ if (window.location.pathname.endsWith("watchlist.html")) {
       });
     }
   }
-
+  // eventlisteners to remove movie from watchlist
   watchlistMovies.addEventListener("click", function (event) {
     if (event.target.closest(".remove-movie-btn")) {
       const button = event.target.closest(".remove-movie-btn");
@@ -190,7 +193,7 @@ if (window.location.pathname.endsWith("watchlist.html")) {
       removeMovie(movieId);
     }
   });
-
+  // function to remove movie from watchlist and local storage
   function removeMovie(movieId) {
     const localMovies = localStorage.getItem("movies");
     const returnedMovies = JSON.parse(localMovies);
