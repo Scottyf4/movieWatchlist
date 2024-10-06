@@ -1,10 +1,13 @@
 const displayArea = document.getElementById("displayContainer");
+const searchText = document.getElementById("searchInput");
 const searchBtn = document.getElementById("searchBtn");
 const addToWatchlistBtn = document.getElementById("addToWatchlist");
 const startupDisplay = document.getElementById("startup-display");
 const watchLink = document.getElementById("watchLink");
+const modalBox = document.getElementById("modalBox");
+const modalMessage = document.getElementById("modalMessage");
 
-// Event listeners
+// Event listeners for index.html
 
 if (window.location.pathname.endsWith("index.html")) {
   searchBtn.addEventListener("click", (e) => {
@@ -13,6 +16,7 @@ if (window.location.pathname.endsWith("index.html")) {
     displayArea.innerHTML = "";
     let searchValue = document.getElementById("searchInput").value;
     getOmdbData(searchValue);
+    searchText.value = "";
   });
 
   displayArea.addEventListener("click", function (event) {
@@ -63,17 +67,25 @@ function getImbdDetails(id) {
 }
 // function to use data from API to create html Card to display
 function createMovieCard(movieData) {
+  artwork = "";
+
+  if (movieData.Poster === "N/A") {
+    artwork = `<img class='movie-poster' src='/images/defaultImage.jpg' alt=no image avaliable/>`;
+  } else {
+    artwork = `<img class='movie-poster' src=${movieData.Poster} alt=movie artwork for ${movieData.Title}/>`;
+  }
+
   displayArea.innerHTML += `
       <div class='movie-card'>
-        <img class='movie-poster' src=${movieData.Poster}/>
+        ${artwork}
         <div>
           <div class='movie-top'>
             <h2 class='movie-title'>${movieData.Title}</h2>
             <p class='movie-rating'>⭐️ ${movieData.imdbRating} </p>
           </div>
           <div class='movie-details'>
-            <p>${movieData.Runtime}</p>
-            <p>${movieData.Genre}</p>
+            <p>${movieData.Runtime} </p>
+            <p>${movieData.Genre} </p>
             <button class='add-movie-btn' id='addToWatchlist${movieData.imdbID}'>
               <div class='circle'>
                 <span class='plus'>+</span>
@@ -92,7 +104,6 @@ function createMovieCard(movieData) {
 // Function to add movie data to local storage
 
 function addToWatch(movieId) {
-  console.log(movieId);
   fetch(`http://www.omdbapi.com/?apikey=5f5d0368&i=${movieId}`)
     .then((res) => res.json())
     .then((data) => {
@@ -104,9 +115,24 @@ function addToWatch(movieId) {
       const moviesArray = JSON.parse(moviesData);
 
       moviesArray.push(data);
-      console.log(moviesArray);
       localStorage.setItem("movies", JSON.stringify(moviesArray));
+
+      displayAddedModal(data);
     });
+}
+
+function displayAddedModal(movie) {
+  const message =
+    (modalMessage.textContent = `${movie.Title} has been added to your watchlist`);
+  displayArea.style.display = "none";
+  setTimeout(() => {
+    modalBox.style.display = "block";
+
+    setTimeout(() => {
+      modalBox.style.display = "none";
+      displayArea.style.display = "grid";
+    }, 1500);
+  }, 100);
 }
 
 if (window.location.pathname.endsWith("watchlist.html")) {
@@ -120,7 +146,11 @@ if (window.location.pathname.endsWith("watchlist.html")) {
 
     if (moviesStored.length === 0) {
       watchlistMovies.innerHTML = `
-          <h4>No Movies to display</h4>
+          <section class='emptySection'>
+            <img class='magnifyWatchIcon' src='images/largeSearch.png' />
+            <h4 class='emptyWatchlist'>No movies to display!</h4>
+            <p>Search for movies for your watchlist</p>
+          </section>
         `;
     } else {
       moviesStored.forEach((movie) => {
@@ -133,13 +163,13 @@ if (window.location.pathname.endsWith("watchlist.html")) {
               <p class='movie-rating'>⭐️ ${movie.imdbRating} </p>
             </div>
             <div class='movie-details'>
-              <p>${movie.Runtime}</p>
-              <p>${movie.Genre}</p>
+              <p>${movie.Runtime} </p>
+              <p>${movie.Genre} </p>
               <button class='remove-movie-btn' id='removeFromWatchlist${movie.imdbID}'>
                 <div class='circle'>
                   <span class='plus'>-</span>
                 </div>
-                <span class='btn-text'>Remove From Watchlist</span>
+                <span class='btn-text'>Remove</span>
               </button>
             </div>
             <div class='movie-details'>
@@ -165,16 +195,12 @@ if (window.location.pathname.endsWith("watchlist.html")) {
     const localMovies = localStorage.getItem("movies");
     const returnedMovies = JSON.parse(localMovies);
 
-    console.log(returnedMovies);
-
     const updatedMovies = returnedMovies.filter(
       (movie) => movie.imdbID !== movieId
     );
 
-    console.log(updatedMovies);
-
     localStorage.setItem("movies", JSON.stringify(updatedMovies));
-
+    watchlistMovies.innerHTML = "";
     displayMovies();
   }
 }

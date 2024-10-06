@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  height: 100vh;
   font-family: "Inter", sans-serif;
 }
 /* CSS for heading section */
@@ -30,7 +31,7 @@ body {
 }
 
 .header h1 {
-  font-size: 2, 5rem;
+  font-size: 2.5rem;
   margin-right: 1em;
 }
 
@@ -47,6 +48,7 @@ body {
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
+  cursor: pointer;
 }
 /* CSS for search bar */
 .searchSection {
@@ -87,7 +89,7 @@ body {
   border: none;
   border-radius: 0;
   outline: none;
-  font-size: 16px;
+  font-size: 0.8rem;
   flex: 1;
 }
 
@@ -98,11 +100,12 @@ body {
   background-color: #dde0e2;
   color: black;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 0.8rem;
 }
 /* CSS for main / movie display area */
 main {
   margin-top: 20px;
+  position: relative;
 }
 
 #displayContainer {
@@ -115,12 +118,19 @@ main {
 
 #startup-display {
   text-align: center;
-  margin-top: 200px;
+  margin-top: 100px;
+}
+
+#startup-display img {
+  width: 70px;
+}
+
+#startup-display p {
+  font-size: 1rem;
 }
 
 .errorDisplay {
   margin-top: 200px;
-  width: 80%;
   text-align: center;
 }
 
@@ -129,8 +139,9 @@ main {
 .movie-card {
   display: flex;
   flex-direction: row;
+  min-width: 95%;
   margin-left: 1em;
-  margin-top: 1em;
+  margin-top: 2em;
   margin-right: 1em;
   padding-bottom: 1em;
   border-bottom: 1px solid #e5e7eb;
@@ -143,13 +154,16 @@ main {
   margin-top: 0;
 }
 .movie-poster {
-  width: 99px;
+  min-width: 99px;
   height: 147px;
+  padding: 0.35em;
+  border: 1px solid black;
 }
 
 .movie-top {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: baseline;
   margin-left: 1em;
 }
@@ -162,9 +176,9 @@ main {
 
 .movie-top > h2 {
   margin-top: 0.2em;
-  margin-right: 1em;
   font-size: 1.2rem;
   font-weight: 500;
+  max-width: 80%;
 }
 
 .add-movie-btn {
@@ -175,6 +189,7 @@ main {
   padding: 0;
   cursor: pointer;
   margin-left: 1em;
+  cursor: pointer;
 }
 
 .remove-movie-btn {
@@ -211,4 +226,293 @@ main {
 #movie-plot {
   margin-top: 1.8em;
   margin-left: 1em;
+}
+
+.watchlistMovies {
+  position: relative;
+}
+
+.emptySection {
+  margin-top: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  text-align: center;
+}
+
+.magnifyWatchIcon {
+  width: 80px;
+}
+
+.emptyWatchlist {
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
+}
+
+#modalBox {
+  display: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  height: 100px;
+  width: 80%;
+  margin-top: 200px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.movieBoard {
+  width: 60px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    justify-content: space-evenly;
+  }
+
+  .header h1 {
+    font-size: 3.5rem;
+  }
+
+  .header .watchlist-link {
+    font-size: 1.5rem;
+  }
+
+  .movie-card {
+    min-width: 100%;
+    margin-left: 1em;
+  }
+
+  .movie-top {
+    min-width: 100%;
+    justify-content: space-between;
+  }
+
+  .movie-poster {
+    margin-left: 2em;
+  }
+
+  .movie-top > p {
+    margin-right: 100px;
+  }
+  .movie-details {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 1em;
+  }
+
+  .movie-details > * {
+    margin-right: 1em;
+  }
+
+  #movie-plot {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 993px) {
+  #displayContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin-top: 3em;
+    padding-right: 1em;
+  }
+
+  .movie-card {
+    margin: 0.5em;
+    margin-right: 1em;
+    height: 200px;
+    margin-bottom: 2em;
+  }
+}
+
+@media (min-width: 1280px) {
+  .header h1 {
+    font-size: 4.5rem;
+  }
+
+  .header .watchlist-link {
+    font-size: 2rem;
+  }
+
+  .search-container {
+    width: 60%;
+  }
+
+  .search-icon {
+    width: 25px;
+  }
+
+  .search-box {
+    font-size: 1.2rem;
+  }
+
+  .search-button {
+    font-size: 1.2rem;
+  }
+
+  #startup-display {
+    width: 150px;
+    text-align: center;
+  }
+
+  #startup-display p {
+    font-size: 2em;
+  }
+
+  .errorDisplay {
+    margin-top: 200px;
+    margin-left: 60%;
+    width: 80%;
+    text-align: center;
+  }
+
+  #displayContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin-top: 3em;
+    margin-right: 2em;
+  }
+
+  .movie-top {
+    margin-left: 0;
+  }
+
+  .movie-card {
+    margin: 0.5em;
+    height: 250px;
+    margin-bottom: 2em;
+  }
+
+  .movie-card p {
+    font-size: 1rem;
+  }
+
+  .movie-details {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .movie-poster {
+    margin-right: 2em;
+    margin-bottom: 1em;
+    min-height: 250px;
+    min-width: 180px;
+  }
+
+  .btn-text {
+    font-size: 1rem;
+  }
+
+  #watchlistMovies {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1920px) {
+  body {
+    width: 100vw;
+  }
+  .header {
+    justify-content: space-between;
+  }
+
+  .header h1 {
+    font-size: 5.5rem;
+    margin-bottom: 1em;
+    margin-left: 1em;
+  }
+
+  .header .watchlist-link {
+    font-size: 2rem;
+    margin-right: 1em;
+  }
+
+  .search-container {
+    width: 50%;
+  }
+
+  #displayContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    margin: 3em;
+    margin-top: 5em;
+  }
+
+  #startup-display {
+    width: 150px;
+    grid-column: 2;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .errorDisplay {
+    margin: 0;
+    margin-top: 100px;
+    grid-column: 2;
+    align-self: center;
+    justify-self: center;
+  }
+
+  #startup-display p {
+    font-size: 2em;
+  }
+
+  .movie-card {
+    margin: 0.5em;
+    justify-content: space-between;
+    height: 350px;
+  }
+
+  .movie-top {
+    margin-left: 2em;
+  }
+  .movie-top > h2 {
+    font-size: 1.8rem;
+    margin-right: 1em;
+    max-width: 60%;
+  }
+  .movie-card p {
+    font-size: 1.1rem;
+  }
+
+  .movie-poster {
+    margin-right: 1em;
+    min-height: 250px;
+    min-width: 160px;
+    max-width: 160px;
+  }
+
+  .movie-details {
+    align-items: baseline;
+    justify-content: flex-start;
+    margin-left: 2em;
+  }
+
+  .btn-text {
+    font-size: 1.3rem;
+  }
+
+  #watchlistMovies {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #watchlistMovies {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
