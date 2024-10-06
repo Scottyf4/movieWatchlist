@@ -33,9 +33,9 @@ if (window.location.pathname.endsWith("index.html")) {
 
 // Function to get data from Omdb
 
-function getOmdbData(searchedMovie) {
+async function getOmdbData(searchedMovie) {
   try {
-    fetch(`https://www.omdbapi.com/?apikey=5f5d0368&s=${searchedMovie}`)
+    await fetch(`https://www.omdbapi.com/?apikey=5f5d0368&s=${searchedMovie}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.Response === "True") {
@@ -54,9 +54,9 @@ function getOmdbData(searchedMovie) {
 }
 
 // function to take base details from OMDb and get extra details using the Imdb ID
-function getImbdDetails(id) {
+async function getImbdDetails(id) {
   try {
-    fetch(`https://www.omdbapi.com/?apikey=5f5d0368&i=${id}`)
+    await fetch(`https://www.omdbapi.com/?apikey=5f5d0368&i=${id}`)
       .then((res) => res.json())
       .then((data) => {
         createMovieCard(data);
