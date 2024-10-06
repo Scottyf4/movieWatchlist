@@ -104,8 +104,8 @@ function createMovieCard(movieData) {
 
 // Function to add movie data to local storage
 
-function addToWatch(movieId) {
-  fetch(`https://www.omdbapi.com/?apikey=5f5d0368&i=${movieId}`)
+async function addToWatch(movieId) {
+  await fetch(`https://www.omdbapi.com/?apikey=5f5d0368&i=${movieId}`)
     .then((res) => res.json())
     .then((data) => {
       if (!localStorage.getItem("movies")) {
