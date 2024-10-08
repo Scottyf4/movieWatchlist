@@ -2,7 +2,7 @@ const displayArea = document.getElementById("displayContainer");
 const searchText = document.getElementById("searchInput");
 const searchBtn = document.getElementById("searchBtn");
 const addToWatchlistBtn = document.getElementById("addToWatchlist");
-const startupDisplay = document.getElementById("startup-display");
+const startupDisplay = document.getElementById("startupDisplay");
 const watchLink = document.getElementById("watchLink");
 const modalBox = document.getElementById("modalBox");
 const modalMessage = document.getElementById("modalMessage");
@@ -18,22 +18,20 @@ searchBtn.addEventListener("click", (e) => {
   searchText.value = "";
 });
 
-displayArea.addEventListener("click", function (event) {
-  if (event.target.closest(".add-movie-btn")) {
-    const button = event.target.closest(".add-movie-btn");
+displayArea.addEventListener("click", (e) => {
+  if (e.target.closest(".addMovieBtn")) {
+    const button = e.target.closest(".addMovieBtn");
     const movieId = button.id.replace("addToWatchlist", "");
 
     addToWatch(movieId);
   }
 });
 
-watchLink.addEventListener("click", displayMovies);
-
 // Function to get data from Omdb
 
-async function getOmdbData(searchedMovie) {
+function getOmdbData(searchedMovie) {
   try {
-    await fetch(`https://www.omdbapi.com/?apikey=5f5d0368&s=${searchedMovie}`)
+    fetch(`https://www.omdbapi.com/?apikey=5f5d0368&s=${searchedMovie}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.Response === "True") {
@@ -52,9 +50,9 @@ async function getOmdbData(searchedMovie) {
 }
 
 // function to take base details from OMDb and get extra details using the Imdb ID
-async function getImbdDetails(id) {
+function getImbdDetails(id) {
   try {
-    await fetch(`https://www.omdbapi.com/?apikey=5f5d0368&i=${id}`)
+    fetch(`https://www.omdbapi.com/?apikey=5f5d0368&i=${id}`)
       .then((res) => res.json())
       .then((data) => {
         createMovieCard(data);
@@ -69,31 +67,31 @@ function createMovieCard(movieData) {
   artwork = "";
 
   if (movieData.Poster === "N/A") {
-    artwork = `<img class='movie-poster' src='/images/defaultImage.jpg' alt=no image avaliable/>`;
+    artwork = `<img class='moviePoster' src='/images/defaultImage.jpg' alt=no image avaliable/>`;
   } else {
-    artwork = `<img class='movie-poster' src=${movieData.Poster} alt=movie artwork for ${movieData.Title}/>`;
+    artwork = `<img class='moviePoster' src=${movieData.Poster} alt=movie artwork for ${movieData.Title}/>`;
   }
 
   displayArea.innerHTML += `
-      <div class='movie-card'>
+      <div class='movieCard'>
         ${artwork}
         <div>
-          <div class='movie-top'>
-            <h2 class='movie-title'>${movieData.Title}</h2>
-            <p class='movie-rating'>⭐️ ${movieData.imdbRating} </p>
+          <div class='movieTop'>
+            <h2 class='movieTitle'>${movieData.Title}</h2>
+            <p class='movieRating'>⭐️ ${movieData.imdbRating} </p>
           </div>
-          <div class='movie-details'>
+          <div class='movieDetails'>
             <p>${movieData.Runtime} </p>
             <p>${movieData.Genre} </p>
-            <button class='add-movie-btn' id='addToWatchlist${movieData.imdbID}'>
+            <button class='addMovieBtn' id='addToWatchlist${movieData.imdbID}'>
               <div class='circle'>
                 <span class='plus'>+</span>
               </div>
-              <span class='btn-text'>Watchlist</span>
+              <span class='btnText'>Watchlist</span>
             </button>
           </div>
-          <div class='movie-details'>
-            <p class='movie-plot' id='movie-plot'>${movieData.Plot}</p>
+          <div class='movieDetails'>
+            <p class='moviePlot' id='moviePlot'>${movieData.Plot}</p>
           </div>
         </div>
       </div>
@@ -102,8 +100,8 @@ function createMovieCard(movieData) {
 
 // Function to add movie data to local storage
 
-async function addToWatch(movieId) {
-  await fetch(`https://www.omdbapi.com/?apikey=5f5d0368&i=${movieId}`)
+function addToWatch(movieId) {
+  fetch(`https://www.omdbapi.com/?apikey=5f5d0368&i=${movieId}`)
     .then((res) => res.json())
     .then((data) => {
       if (!localStorage.getItem("movies")) {
