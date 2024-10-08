@@ -19,25 +19,25 @@ function displayMovies() {
   } else {
     moviesStored.forEach((movie) => {
       watchlistMovies.innerHTML += `
-      <div class='movie-card'>
-        <img class='movie-poster' src=${movie.Poster}/>
+      <div class='movieCard'>
+        <img class='moviePoster' src=${movie.Poster}/>
         <div>
-          <div class='movie-top'>
-            <h2 class='movie-title'>${movie.Title}</h2>
-            <p class='movie-rating'>⭐️ ${movie.imdbRating} </p>
+          <div class='movieTop'>
+            <h2 class='movieTitle'>${movie.Title}</h2>
+            <p class='movieRating'>⭐️ ${movie.imdbRating} </p>
           </div>
-          <div class='movie-details'>
+          <div class='movieDetails'>
             <p>${movie.Runtime} </p>
             <p>${movie.Genre} </p>
-            <button class='remove-movie-btn' id='removeFromWatchlist${movie.imdbID}'>
+            <button class='removeMovieBtn' id='removeFromWatchlist${movie.imdbID}'>
               <div class='circle'>
                 <span class='plus'>-</span>
               </div>
-              <span class='btn-text'>Remove</span>
+              <span class='btnText'>Remove</span>
             </button>
           </div>
-          <div class='movie-details'>
-            <p class='movie-plot' id='movie-plot'>${movie.Plot}</p>
+          <div class='movieDetails'>
+            <p class='moviePlot' id='moviePlot'>${movie.Plot}</p>
           </div>
         </div>
       </div>

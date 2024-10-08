@@ -36,12 +36,12 @@ body {
 }
 
 .header h1,
-.header .watchlist-link {
+.header .watchlistLink {
   position: relative;
   z-index: 2;
 }
 
-.watchlist-link {
+.watchlistLink {
   margin-top: 10px;
   padding: 10px 20px;
   color: white;
@@ -55,7 +55,7 @@ body {
   position: relative;
 }
 
-.search-container {
+.searchContainer {
   position: absolute;
   bottom: -20px;
   left: 50%;
@@ -67,7 +67,7 @@ body {
   border-radius: 5px;
 }
 
-.search-box-wrapper {
+.searchBoxWrapper {
   display: flex;
   flex: 1;
   align-items: center;
@@ -77,14 +77,14 @@ body {
   padding: 5px 0;
 }
 
-.search-icon {
+.searchIcon {
   padding: 10px;
   color: gray;
   background-color: white;
   border: none;
 }
 
-.search-box {
+.searchBox {
   padding: 10px;
   border: none;
   border-radius: 0;
@@ -93,7 +93,7 @@ body {
   flex: 1;
 }
 
-.search-button {
+.searchButton {
   padding: 10px 15px;
   border: none;
   border-radius: 0 5px 5px 0;
@@ -117,16 +117,16 @@ main {
   margin-right: 2em;
 }
 
-#startup-display {
+#startupDisplay {
   text-align: center;
   margin-top: 100px;
 }
 
-#startup-display img {
+#startupDisplay img {
   width: 70px;
 }
 
-#startup-display p {
+#startupDisplay p {
   font-size: 1rem;
 }
 
@@ -137,7 +137,7 @@ main {
 
 /* CSS for movie Card */
 
-.movie-card {
+.movieCard {
   display: flex;
   flex-direction: row;
   min-width: 95%;
@@ -149,19 +149,19 @@ main {
   color: black;
 }
 
-.movie-card p {
+.movieCard p {
   font-size: 0.8rem;
   font-weight: 200;
   margin-top: 0;
 }
-.movie-poster {
+.moviePoster {
   min-width: 99px;
   height: 147px;
   padding: 0.35em;
   border: 1px solid black;
 }
 
-.movie-top {
+.movieTop {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -169,20 +169,20 @@ main {
   margin-left: 1em;
 }
 
-.movie-details {
+.movieDetails {
   display: flex;
   flex-direction: column;
   align-items: baseline;
 }
 
-.movie-top > h2 {
+.movieTop > h2 {
   margin-top: 0.2em;
   font-size: 1.2rem;
   font-weight: 500;
   max-width: 80%;
 }
 
-.add-movie-btn {
+.addMovieBtn {
   display: flex;
   align-items: center;
   background: none;
@@ -190,10 +190,9 @@ main {
   padding: 0;
   cursor: pointer;
   margin-left: 1em;
-  cursor: pointer;
 }
 
-.remove-movie-btn {
+.removeMovieBtn {
   display: flex;
   align-items: center;
   background: none;
@@ -216,15 +215,15 @@ main {
 
 .plus {
   color: white;
-  font-size: 18px;
+  font-size: 1.2rem;
 }
 
-.btn-text {
+.btnText {
   font-size: 0.8rem;
   color: black;
 }
 
-#movie-plot {
+#moviePlot {
   margin-top: 1.8em;
   margin-left: 1em;
 }
@@ -284,38 +283,38 @@ main {
     font-size: 3.5rem;
   }
 
-  .header .watchlist-link {
+  .header .watchlistLink {
     font-size: 1.5rem;
   }
 
-  .movie-card {
+  .movieCard {
     min-width: 100%;
     margin-left: 1em;
   }
 
-  .movie-top {
+  .movieTop {
     min-width: 100%;
     justify-content: space-between;
   }
 
-  .movie-poster {
+  .moviePoster {
     margin-left: 2em;
   }
 
-  .movie-top > p {
+  .movieTop > p {
     margin-right: 100px;
   }
-  .movie-details {
+  .movieDetails {
     flex-direction: row;
     justify-content: flex-start;
     margin-left: 1em;
   }
 
-  .movie-details > * {
+  .movieDetails > * {
     margin-right: 1em;
   }
 
-  #movie-plot {
+  #moviePlot {
     margin-left: 0;
   }
 }
@@ -329,14 +328,14 @@ main {
     padding-right: 1em;
   }
 
-  .movie-card {
+  .movieCard {
     margin: 0.5em;
     margin-right: 1em;
     height: 200px;
     margin-bottom: 2em;
   }
 
-  #startup-display {
+  #startupDisplay {
     grid-column: span 2;
   }
 
@@ -358,23 +357,23 @@ main {
     font-size: 4.5rem;
   }
 
-  .header .watchlist-link {
+  .header .watchlistLink {
     font-size: 2rem;
   }
 
-  .search-container {
+  .searchContainer {
     width: 60%;
   }
 
-  .search-icon {
+  .searchIcon {
     width: 25px;
   }
 
-  .search-box {
+  .searchBox {
     font-size: 1.2rem;
   }
 
-  .search-button {
+  .searchButton {
     font-size: 1.2rem;
   }
 
@@ -393,43 +392,43 @@ main {
     margin-right: 2em;
   }
 
-  #startup-display {
+  #startupDisplay {
     text-align: center;
     grid-column: span 2;
   }
 
-  #startup-display p {
+  #startupDisplay p {
     font-size: 2em;
   }
 
-  .movie-top {
+  .movieTop {
     margin-left: 0;
   }
 
-  .movie-card {
+  .movieCard {
     margin: 0.5em;
     height: 250px;
     margin-bottom: 2em;
     padding-bottom: 2em;
   }
 
-  .movie-card p {
+  .movieCard p {
     font-size: 1rem;
   }
 
-  .movie-details {
+  .movieDetails {
     margin-left: 0;
     text-align: left;
   }
 
-  .movie-poster {
+  .moviePoster {
     margin-right: 2em;
     margin-bottom: 1em;
     min-height: 250px;
     min-width: 180px;
   }
 
-  .btn-text {
+  .btnText {
     font-size: 1rem;
   }
 
@@ -455,12 +454,12 @@ main {
     margin-left: 1em;
   }
 
-  .header .watchlist-link {
+  .header .watchlistLink {
     font-size: 2rem;
     margin-right: 1em;
   }
 
-  .search-container {
+  .searchContainer {
     width: 50%;
   }
 
@@ -472,7 +471,7 @@ main {
     margin-top: 5em;
   }
 
-  #startup-display {
+  #startupDisplay {
     width: 150px;
     grid-column: 2;
     align-self: center;
@@ -487,43 +486,43 @@ main {
     justify-self: center;
   }
 
-  #startup-display p {
+  #startupDisplay p {
     font-size: 2em;
   }
 
-  .movie-card {
+  .movieCard {
     margin: 0.5em;
     margin-right: 4em;
     justify-content: space-between;
     height: 350px;
   }
 
-  .movie-top {
+  .movieTop {
     margin-left: 2em;
   }
-  .movie-top > h2 {
+  .movieTop > h2 {
     font-size: 1.8rem;
     margin-right: 1em;
     max-width: 60%;
   }
-  .movie-card p {
+  .movieCard p {
     font-size: 1.1rem;
   }
 
-  .movie-poster {
+  .moviePoster {
     margin-right: 1em;
     min-height: 250px;
     min-width: 160px;
     max-width: 160px;
   }
 
-  .movie-details {
+  .movieDetails {
     align-items: baseline;
     justify-content: flex-start;
     margin-left: 2em;
   }
 
-  .btn-text {
+  .btnText {
     font-size: 1.3rem;
   }
 
